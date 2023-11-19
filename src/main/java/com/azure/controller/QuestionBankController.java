@@ -32,7 +32,7 @@ public class QuestionBankController {
         if (existingQuestionBank != null){
             throw new QuestionnaireException("QB with name: "+questionBankDTO.getBankCode()+" already exists");
         }
-        QuestionBankDTO questionBankDTO1 = questionBankService.importQuestionBank(questionBankDTO);
+        String questionBankCode = questionBankService.importQuestionBank(questionBankDTO);
         return new ResponseEntity<>(questionBankDTO, HttpStatus.CREATED);
 
     }
