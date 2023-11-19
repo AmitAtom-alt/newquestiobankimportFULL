@@ -3,9 +3,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -26,4 +26,52 @@ public class Conditions {
     @ManyToOne
     @JoinColumn(name = "section_id")
     private Section section;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(String conditions) {
+        this.conditions = conditions;
+    }
+
+    public String getConditionsAnswer() {
+        return conditionsAnswer;
+    }
+
+    public void setConditionsAnswer(String conditionsAnswer) {
+        this.conditionsAnswer = conditionsAnswer;
+    }
+
+    public String getConditionsType() {
+        return conditionsType;
+    }
+
+    public void setConditionsType(String conditionsType) {
+        this.conditionsType = conditionsType;
+    }
+
+    public SubSection getSubSection() {
+        return subSection;
+    }
+
+    public void setSubSection(SubSection subSection) {
+        this.subSection = subSection;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
 }

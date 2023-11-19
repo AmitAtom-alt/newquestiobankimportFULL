@@ -1,24 +1,18 @@
 package com.azure.entity.qBank;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import jakarta.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-
 @Entity
-public class QuestionValidation {
+public class QuestionBankQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String validationRule;
-
     @ManyToOne
-    @JoinColumn(name = "question_code", referencedColumnName = "code")
+    @JoinColumn(name = "question_id")
     private Question question;
+    @ManyToOne
+    @JoinColumn(name = "question_bank_id")
+    private QuestionBank questionBank;
 
     public Long getId() {
         return id;
@@ -28,19 +22,19 @@ public class QuestionValidation {
         this.id = id;
     }
 
-    public String getValidationRule() {
-        return validationRule;
-    }
-
-    public void setValidationRule(String validationRule) {
-        this.validationRule = validationRule;
-    }
-
     public Question getQuestion() {
         return question;
     }
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public QuestionBank getQuestionBank() {
+        return questionBank;
+    }
+
+    public void setQuestionBank(QuestionBank questionBank) {
+        this.questionBank = questionBank;
     }
 }

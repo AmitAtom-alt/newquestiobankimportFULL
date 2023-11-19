@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,5 +15,27 @@ public class ConditionsDTO {
     private String conditionsAnswer;
     private String conditionsType;
 
+    public String getConditions() {
+        return conditions;
+    }
 
+    public void setConditions(String conditions) {
+        this.conditions = conditions;
+    }
+
+    public String getConditionsAnswer() {
+        return conditionsAnswer;
+    }
+
+    public void setConditionsAnswer(String conditionsAnswer) {
+        this.conditionsAnswer = conditionsAnswer;
+    }
+
+    public String getConditionsType() {
+        return conditionsType;
+    }
+
+    public void setConditionsType(String conditionsType) {
+        this.conditionsType = conditionsType;
+    }
 }
