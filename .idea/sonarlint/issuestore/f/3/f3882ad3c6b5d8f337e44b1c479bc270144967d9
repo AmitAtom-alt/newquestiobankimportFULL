@@ -1,0 +1,16 @@
+
+
+java:S14882"]Immediately return this expression instead of assigning it to the temporary variable "saved".(‡·¿Èüÿÿÿÿ8Š¡¤Œ´1
+X	java:S1256"<This block of commented-out lines of code should be removed.(ð‰¦×8¡¤Œ´1
+]	java:S125G"<This block of commented-out lines of code should be removed.(ÔûÍÑÿÿÿÿÿ8ž¡¤Œ´1
+X	java:S125k"<This block of commented-out lines of code should be removed.(ößò”8¡¡¤Œ´1
+Y	java:S125†"<This block of commented-out lines of code should be removed.(þÎûá8¤¡¤Œ´1
+^	java:S125›"<This block of commented-out lines of code should be removed.(îÈÌÓýÿÿÿÿ8¥¡¤Œ´1
+t
+java:S1128"RRemove this unused import 'com.fasterxml.jackson.databind.DeserializationFeature'.(ÌòÔ¹üÿÿÿÿ8¦¡¤Œ´1
+e
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™8¦¡¤Œ´1
+n
+java:S1128"LRemove this unused import 'org.springframework.web.multipart.MultipartFile'.(ôŸœžÿÿÿÿÿ8§¡¤Œ´1
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8§¡¤Œ´1

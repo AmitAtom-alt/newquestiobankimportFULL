@@ -1,0 +1,14 @@
+
+C
+java:S1452"&Remove usage of generic wildcard type.(¡Ô¨8Ùúé³1
+]	java:S125$"<This block of commented-out lines of code should be removed.(¡…Ôöüÿÿÿÿ8ÒËé³1
+l
+java:S1128"JRemove this unused import 'com.azure.exception.ResourceNotFoundException'.(€æçÏıÿÿÿÿ8Ûúé³1
+`
+java:S1128"CRemove this unused import 'org.apache.tomcat.util.http.HeaderUtil'.(•Œ ¼8Ûúé³1
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8Ûúé³1
+F
+java:S1128")Remove this unused import 'java.net.URI'.(Ö¦¨°8Ûúé³1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ûúé³1
