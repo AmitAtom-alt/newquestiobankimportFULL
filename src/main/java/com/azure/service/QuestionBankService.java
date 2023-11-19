@@ -10,6 +10,7 @@ import com.azure.payload.qBank.QuestionDTO;
 import com.azure.repository.qBank.QuestionBankQuestionRepo;
 import com.azure.repository.qBank.QuestionBankRepo;
 import com.azure.repository.qBank.QuestionRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.List;
 
 @Service
 public class QuestionBankService {
+    private static final Logger logger = Logger.getLogger(QuestionBankService.class);
     @Autowired
     private QuestionBankRepo questionBankRepo;
     @Autowired
