@@ -5,11 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class QuestionConditionDTO {
-    private String condition;
+    private String conditions;
+
+    private String conditionsAnswer;
+    private String conditionsType;
 }

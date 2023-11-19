@@ -53,4 +53,8 @@ public class Question implements Serializable {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<SubQuestion> subQuestionsList;
+
+    private String warn;
+    private String why;
+    private String severity;
 }

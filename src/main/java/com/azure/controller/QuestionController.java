@@ -1,14 +1,15 @@
 package com.azure.controller;
 
+import com.azure.entity.qBank.Question;
+import com.azure.payload.qBank.QuestionDTO;
 import com.azure.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/questions")
@@ -22,14 +23,8 @@ public class QuestionController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveQuestions(@RequestParam("file") MultipartFile file) {
-        try {
-            questionService.importQuestionBank(file);
-            return ResponseEntity.ok("Question bank imported successfully.");
-        } catch (Exception e) {
-
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while importing question bank");
-        }
+    public ResponseEntity<List<Question>> saveQuestions(@RequestBody List<QuestionDTO> questionDTO) {
+        List<Question> questions = questionService.importQuestionBank(questionDTO);
+        return new ResponseEntity<>(questions, HttpStatus.CREATED);
     }
 }

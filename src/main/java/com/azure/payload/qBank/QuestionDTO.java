@@ -32,4 +32,9 @@ public class QuestionDTO {
     private List<QuestionValidationDTO> questionValidation;
     private List<SubQuestionDTO> subQuestionsList;
 
+
+    private String warn;
+    private String why;
+    private String severity;
+
 }

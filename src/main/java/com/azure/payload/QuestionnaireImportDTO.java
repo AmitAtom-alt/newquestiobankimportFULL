@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuestionnaireDTO {
+public class QuestionnaireImportDTO {
     private String type;
     private String text;
     private String name;

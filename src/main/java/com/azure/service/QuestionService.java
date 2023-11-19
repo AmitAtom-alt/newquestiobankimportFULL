@@ -25,21 +25,17 @@ public class QuestionService {
     private QuestionRepository questionRepository;
 
     @Transactional
-    public void importQuestionBank(MultipartFile file) {
+    public List<Question> importQuestionBank(List<QuestionDTO> questionDTO) {
         try {
             logger.info("Started importing question bank...");
-            ObjectMapper objectMapper = new ObjectMapper();
-            TypeFactory typeFactory = objectMapper.getTypeFactory();
-            List<QuestionDTO> questionDTO = objectMapper.readValue(file.getInputStream(), typeFactory.constructCollectionType(List.class, QuestionDTO.class));
 
-            List<Question> question = convertToEntity(questionDTO);
-            questionRepository.saveAll(question);
-
-
-            logger.info("Imported {} questions successfully." + question.size());
-        } catch (IOException e) {
+            List<Question> questions = convertToEntity(questionDTO);
+            List<Question> importedQuestions = questionRepository.saveAll(questions);
+            logger.info("Imported {} questions successfully." + importedQuestions.size());
+            return importedQuestions;
+        } catch (Exception e) {
             logger.info("Error occurred while importing question bank", e);
-            e.printStackTrace();
+            throw new RuntimeException("Error occurred while importing question bank: " + e.getMessage());
         }
     }
 
@@ -61,6 +57,9 @@ public class QuestionService {
             question.setTextFont(questionDTO.getTextFont());
             question.setType(questionDTO.getType());
             question.setDisabled(questionDTO.isDisabled());
+            question.setWarn(questionDTO.getWarn());
+            question.setWhy(questionDTO.getWhy());
+            question.setSeverity(questionDTO.getSeverity());
 
             // Convert RecommendationDTO to Recommendation
             RecommendationDTO recommendationDTO = questionDTO.getRecommendation();
@@ -91,7 +90,9 @@ public class QuestionService {
                 List<QuestionCondition> questionConditions = new ArrayList<>();
                 for (QuestionConditionDTO questionConditionDTO : questionConditionDTOS) {
                     QuestionCondition questionCondition = new QuestionCondition();
-                    questionCondition.setCondition(questionConditionDTO.getCondition());
+                    questionCondition.setConditions(questionConditionDTO.getConditions());
+                    questionCondition.setConditionsType(questionConditionDTO.getConditionsType());
+                    questionCondition.setConditionsAnswer(questionConditionDTO.getConditionsAnswer());
                     questionConditions.add(questionCondition);
                 }
                 question.setQuestionConditions(questionConditions);
